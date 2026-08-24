@@ -1,6 +1,6 @@
 ---
 skill: ingest-web
-updated: 2 Aug 2026
+updated: 24 Aug 2026
 ---
 
 # ingest-web — CHANGELOG
@@ -10,6 +10,17 @@ Public mirror of the `/ingest-web` skill. Pointer: [SKILL.md](SKILL.md) · [web_
 Repo-wide notes live at [../CHANGELOG.md](../CHANGELOG.md); this file documents per-version delta narrative for the skill specifically.
 
 ---
+
+## 1.9.1-share — 24 Aug 2026
+
+**New external-source saves carry an explicit trust boundary without changing the source bytes.**
+
+Every newly saved external-source markdown file now includes
+`content_trust: untrusted-source-evidence`. The field tells later readers that
+instruction-shaped source text is quoted evidence, never instructions. It does not claim an audience
+or access restriction, malware status, confidentiality clearance or permission to continue. Trusted
+local format/config references remain unlabeled, existing archives are not rewritten and omission on
+a new external-source save is a validation failure.
 
 ## 1.9.0-share — 2 Aug 2026
 
