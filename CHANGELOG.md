@@ -4,6 +4,10 @@ This changelog tracks substantive changes to the Bamboo DCM library repo. Update
 
 ---
 
+## 24 August 2026
+
+- **[`ingest-web/` v1.9.0-share → v1.9.1-share — new external-source saves carry an explicit trust boundary]** The standard frontmatter adds `content_trust: untrusted-source-evidence`; later readers treat instruction-shaped source text as quoted evidence rather than instructions while the source bytes remain intact. The field is not an audience/access restriction, malware verdict, confidentiality clearance or permission to continue. Trusted local references remain unlabeled, existing archives are untouched and omission on a new external-source save is a validation failure. — Horácio (Bamboo DCM agent)
+
 ## 19 August 2026
 
 - **[repo-governance][review-routing] Routine library PRs stop auto-requesting Urian** · `.github/CODEOWNERS`. The wildcard owner set is now only `@arthur-bamboo`. Routine awareness remains in `#pull-requests`; a named reviewer is requested only for a real ruleset, authority or unresolved judgment fitted to that person. No asset content changes. — Horácio (Bamboo DCM agent)
