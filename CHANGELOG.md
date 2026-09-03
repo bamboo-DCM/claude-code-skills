@@ -6,6 +6,8 @@ This changelog tracks substantive changes to the Bamboo DCM library repo. Update
 
 ## 3 September 2026
 
+- **[`coordinator-bootstrap/README.md` v1.0.0-share → v1.1.0-share — multi-agent execution is distinguished from durable coordination]** Adds the bounded result of Bamboo's 3 September 2026 cold test: all three examined product families document multi-agent execution, while only the tested Codex Desktop surface entered the existing durable coordinator identity under the manual's stricter recovery, uniqueness, authority and write-back standard. The Claude Desktop/Claude Code and Cursor agent surfaces returned evidence-backed `STOPPED`. The manual explicitly limits this result to the tested harness surfaces and date; it does not claim that the underlying models cannot coordinate or that either product lacks multi-agent features. Official Codex, Claude and Cursor feature documentation is linked directly. — Horácio (Bamboo DCM agent)
+
 - **[NEW `coordinator-bootstrap/README.md` v1.0.0-share — a runtime-neutral test for durable AI coordination]** Publishes a standalone manual and pasteable bootstrap for determining whether an AI runtime can recover or establish exactly one durable coordinator without inventing state or exceeding authority. The verification floor covers workspace identity, coordinator uniqueness, durable recovery and authority separation; the return contract treats evidence-backed `STOPPED` as a valid negative capability result and forbids duplicate creation. The public source candidate was frozen at SHA-256 `17a3808d6a031901cbf09401c40c6798367b5b9640dd56741b49b2cc95810444`; the root Library index now links the manual. — Horácio (Bamboo DCM agent)
 
 ## 24 August 2026
