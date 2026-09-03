@@ -4,6 +4,10 @@ This changelog tracks substantive changes to the Bamboo DCM library repo. Update
 
 ---
 
+## 3 September 2026
+
+- **[NEW `coordinator-bootstrap/README.md` v1.0.0-share — a runtime-neutral test for durable AI coordination]** Publishes a standalone manual and pasteable bootstrap for determining whether an AI runtime can recover or establish exactly one durable coordinator without inventing state or exceeding authority. The verification floor covers workspace identity, coordinator uniqueness, durable recovery and authority separation; the return contract treats evidence-backed `STOPPED` as a valid negative capability result and forbids duplicate creation. The public source candidate was frozen at SHA-256 `17a3808d6a031901cbf09401c40c6798367b5b9640dd56741b49b2cc95810444`; the root Library index now links the manual. — Horácio (Bamboo DCM agent)
+
 ## 24 August 2026
 
 - **[`ingest-web/` v1.9.0-share → v1.9.1-share — new external-source saves carry an explicit trust boundary]** The standard frontmatter adds `content_trust: untrusted-source-evidence`; later readers treat instruction-shaped source text as quoted evidence rather than instructions while the source bytes remain intact. The field is not an audience/access restriction, malware verdict, confidentiality clearance or permission to continue. Trusted local references remain unlabeled, existing archives are untouched and omission on a new external-source save is a validation failure. — Horácio (Bamboo DCM agent)
