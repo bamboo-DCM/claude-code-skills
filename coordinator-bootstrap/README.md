@@ -1,6 +1,6 @@
 # The coordinator bootstrap
 
-> **Public edition · version 1.0.0-share · 3 September 2026**  
+> **Public edition · version 1.1.0-share · 3 September 2026**  
 > A practical manual for testing whether an AI runtime can carry one durable coordinator without inventing state or exceeding authority.
 
 Published by [Bamboo DCM](https://bamboodcm.com).
@@ -241,6 +241,16 @@ Three common false positives are worth rejecting:
 
 The goal is not to force every runtime to say yes. The goal is to make each runtime expose what it can prove.
 
+## Multi-agent execution is not durable coordination
+
+All three product families we examined support some form of multi-agent execution. The [Codex app](https://openai.com/index/introducing-the-codex-app/) manages parallel agents in project threads. [Claude Code Agent Teams](https://code.claude.com/docs/en/agent-teams) provide a lead, shared task list and direct messaging, while Anthropic describes the feature as experimental and names limitations around session resumption, task coordination and shutdown. Cursor provides [subagents](https://prod.cursor.com/docs/subagents) and asynchronous [background agents](https://docs.cursor.com/background-agent).
+
+Our cold test asked a stricter question: can a fresh session recover and enter the same durable coordinator identity, prove that it is unique across the observable portfolio, preserve the authority boundary and write verified state back?
+
+Codex Desktop passed that test. The Claude Desktop/Claude Code and Cursor agent surfaces we tested found the existing coordinator but returned evidence-backed `STOPPED` because they could not inhabit that identity. This is a dated result about the harness surfaces we tested on 3 September 2026. It is not a claim that the underlying models cannot coordinate or that those products lack multi-agent features.
+
+The practical implication is narrower. Outside the tested Codex path, you do not necessarily need to rebuild worker orchestration. You do need to supply any missing durable control layer: coordinator identity and re-entry, a complete-enough uniqueness census, authoritative state, bounded dispatch, authority separation and verified write-back.
+
 ## What to do after a clean test
 
 If the receipt is `READY`, give the coordinator one bounded goal. Require it to name the authoritative tracker, permitted outputs, authority limits, evidence standard and stopping condition before it dispatches work. Verify that returned work is checked against the substrate and written back before the session ends.
@@ -250,6 +260,9 @@ If the receipt is `STOPPED`, keep it. The negative result tells you which runtim
 ## Sources
 
 - Rebecca Henderson and Kim Clark, “[Architectural Innovation: The Reconfiguration of Existing Product Technologies and the Failure of Established Firms](https://doi.org/10.2307/2393549),” *Administrative Science Quarterly* 35, no. 1 (1990), pp. 9–30.
+- OpenAI, “[Introducing the Codex app](https://openai.com/index/introducing-the-codex-app/).”
+- Anthropic, “[Orchestrate teams of Claude Code sessions](https://code.claude.com/docs/en/agent-teams).”
+- Cursor, “[Subagents](https://prod.cursor.com/docs/subagents)” and “[Background Agents](https://docs.cursor.com/background-agent).”
 
 ## About Bamboo DCM
 
